@@ -47,7 +47,11 @@ class SlideShow extends Component {
 
     };
 
-    build = (slides) => {
+    Clear = () => {
+        this.state.context.clearRect(0, 0, this.state.context.canvas.width, this.state.context.canvas.height);
+    }
+
+    Start = (slides) => {
         console.log(slides);
         var interval = 40; // ms
         var expected = Date.now() + interval;
@@ -68,6 +72,7 @@ class SlideShow extends Component {
                     if (this.CurrentSlide(this.state.frameCounter, slides) === index) {
                         //console.log(slide.props)
                         if (!slide.props.drawn) {
+                            this.Clear();
                             slide.Draw(this.state.context, index);
                             slide.props.drawn = true;
                         }

@@ -19,34 +19,43 @@ class App extends Component {
         text: "מדריד: המלכה האם של ערי ספרד",
         img: 'https://images.pexels.com/photos/2120101/pexels-photo-2120101.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
         length: 5,
-        drawn: false
+        drawn: false,
+        index: 0
       }, {
         text: "ולנסיה: כמו ברצלונה רק בלי העומס של התיירים",
         img: 'https://images.pexels.com/photos/2100387/pexels-photo-2100387.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
         length: 5,
-        drawn: false
+        drawn: false,
+        index: 1
       },
       {
         text: "פלמה דה מיורקה: המלדיבים של ספרד",
         img: 'https://images.pexels.com/photos/2113368/pexels-photo-2113368.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
         length: 5,
-        drawn: false
+        drawn: false,
+        index: 2
       }, {
         text: "סיביליה: ללמוד פלמנקו במקום הכי טוב בעולם",
         img: 'https://images.pexels.com/photos/2097103/pexels-photo-2097103.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
         length: 5,
-        drawn: false
+        drawn: false,
+        index: 3
       },
       {
         text: "סן סבסטיאן: חופים, נופים ומאכלים שתמצאו רק בחבל הבאסקים",
         img: 'https://images.pexels.com/photos/2111987/pexels-photo-2111987.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
         length: 5,
-        drawn: false
+        drawn: false,
+        index: 4
       }
     ];
     const SlideShow = this.refs.SlideShow;
 
-    SlideShow.build(slides.map(slide => {
+    SlideShow.componentDidMount = () =>{
+      SlideShow.Clear();
+    }
+
+    SlideShow.Start(slides.map(slide => {
       return new Slide(slide);
     }));
     /*let img = new Image();
